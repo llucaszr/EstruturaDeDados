@@ -1,0 +1,1 @@
+alert("Testando a chamada JS por uma página!");
