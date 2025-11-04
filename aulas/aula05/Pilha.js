@@ -1,84 +1,105 @@
-// Vamos codificar o esqueleto de métodos para uma estrutura de dados simples Pilha Simples
-
+/**
+ *  Vamos codificar o esqueleto de métodos
+ *  para uma estrutura de dados Pilha simples
+ **/
 class Pilha {
-  // Início da Classe Pilha
-  // Método construtor que será útil ao instanciar um objeto do tipo desta classe Pilha
+  //início da classe Pilha
+  /** método construtor que será útil
+   *  ao instanciar um objeto do tipo
+   * desta classe Pilha
+   **/
   constructor() {
     this.items = [];
   }
-  // Método para empilhar elementos
+
+  // método para empilhar elementos
   empilhar(elemento) {
-    // Posso empilhar usando o método JS push
+    // posso empilhar usando o método javaScript push
     // this.items.push(elemento);
-    // Ou empilhar usando o último endereço vazio
+    // ou então empilhar usando o último endereço vazio
     this.items[this.items.length] = elemento;
   }
 
-  // Método para devolver o elemento do topo da pilha
+  // devolve o elemento do topo da pilha
   devolveElementoTopoPilha() {
     return this.items[this.items.length - 1];
   }
 
-  // Método para remover elemento do topo da pilha
-  removeElementoTopoPilha(elemento) {
+  // remover elemento (item) do topo da pilha
+  removeElementoTopoPilha() {
     return this.items.pop();
   }
 
-  // Método para informar se a pilha está vazia
+  // informa se a pilha está vazia
   pilhaEstaVazia() {
     return this.items.length === 0;
   }
-
-  // Método para esvaziar a pilha
+  // limpar a pilha
   limparPilha() {
     this.items = [];
   }
-
-  // Método que devolve o tamanho(qtde elementos) da pilha
+  // devolve o tamanho (qtde elementos) da pilha
   tamanhoPilha() {
     return this.items.length;
   }
-
-  // Método para imprimir todos elementos da pilha
+  // imprimir todos elementos pilha
   imprimir() {
     console.log(this.items.toString());
   }
-} // Fim da Classe
+} // fim da classe Pilha
 
-// Testando o funcionamento dos métodos da classe Pilha, instanciando(criando) um objeto desta classe
-
+/**
+ * agora vamos testar o funcionamento dos métodos
+ * da classe Pilha, instanciando (criando) um objeto
+ * desta classe
+ */
 const pilha = new Pilha();
 
-// Verificando se a pilha está vazia
-console.log(`A pilha está vazia? ${pilha.pilhaEstaVazia()}`);
-
-// Empilhando elementos
+// empilhando elementos
 pilha.empilhar("Gustavo");
 pilha.empilhar("Regiano");
-pilha.empilhar("Dayane");
-pilha.empilhar("Samuel");
+pilha.empilhar("Fábio");
+pilha.empilhar("Airton");
+pilha.empilhar("Pedro Marcato");
 
-// Verificando se foi inserido o elemento na pilha
+// primeiramente vamos verificar se a pilha está vazia
+console.log("A pilha está vazia? ", pilha.pilhaEstaVazia());
+
+// verificando se foi inserido o elemento na pilha
 pilha.imprimir();
 
-// Verificando o tamanho da pilha
-console.log(`A pilha contém: ${pilha.tamanhoPilha()} elementos.`);
+// verificando o tamanho da pilha
+console.log("A pilha contém ", pilha.tamanhoPilha(), " elementos.");
 
-// Verificando o elemento que está no topo da pilha
+// verificando o elemento que está no topo da pilha
+console.log("Quem está no topo da pilha é:", pilha.devolveElementoTopoPilha());
 
-console.log(
-  `Quem está no topo da pilha é: ${pilha.devolveElementoTopoPilha()}`
-);
+// desempilhando (removendo o elemento do topo da pilha)
+console.log("Remover o elemento:", pilha.removeElementoTopoPilha(), "da pilha");
 
-// Desempilhando (removendo o elemento do topo da pilha)
-console.log(`Remover o elemento: ${pilha.removeElementoTopoPilha()}`);
-console.log(`Remover o elemento: ${pilha.removeElementoTopoPilha()}`);
-
-console.log(`A pilha agora, contém: ${pilha.tamanhoPilha()} elementos.`);
-
-// Mostrando a pilha depois de remover elementos
+// imprimindo novamente a pilha, sem o último elemento
 pilha.imprimir();
 
-// Esvaziar a pilha
+console.log("Remover o elemento:", pilha.removeElementoTopoPilha(), "da pilha");
+console.log("A pilha agora, contem:", pilha.tamanhoPilha(), "elementos");
+
+// mostrando a pilha depois de remover um elemento
+pilha.imprimir();
+
+console.log("Remover o elemento:", pilha.removeElementoTopoPilha(), "da pilha");
+
+// mostrando a pilha depois de remover mais outro elemento
+pilha.imprimir();
+
+console.log("Remover o elemento:", pilha.removeElementoTopoPilha(), "da pilha");
+
+// mostrando a pilha depois de remover mais outro elemento
+pilha.imprimir();
+
+// agora vamos esvaziar a pilha
 pilha.limparPilha();
-console.log(`A pilha agora, contém: ${pilha.tamanhoPilha()} elementos`);
+console.log(
+  "Agora irei limpar a pilha e ela conterá:",
+  pilha.tamanhoPilha(),
+  "elementos"
+);
